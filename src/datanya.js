@@ -1,7 +1,14 @@
 import react, { useEffect, useState } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Prompt
+} from "react-router-dom";
+import Detailpage from "./detailpage";
 // const header = () => <form action="" method="POST"></form>;
 
 // ambil line untuk compile datas
@@ -26,13 +33,15 @@ export default function Datanya(props) {
   } else {
     return (
       <div>
-        {rs.map((data) => (
-          <div className="alert alert-info">
-            {data.title}
-            <br />
-            <a href="">Detail</a>
-          </div>
-        ))}
+        <Router>
+          {rs.map((data) => (
+            <div className="alert alert-info">
+              {data.title}
+              <br />
+              <Link to="detail/2">Detail</Link>
+            </div>
+          ))}
+        </Router>
       </div>
     );
   }
