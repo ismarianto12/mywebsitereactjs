@@ -1,5 +1,7 @@
 import react, { useEffect, useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 // const header = () => <form action="" method="POST"></form>;
 
 // ambil line untuk compile datas
@@ -25,7 +27,11 @@ export default function Datanya(props) {
     return (
       <div>
         {rs.map((data) => (
-          <p key={data.id}>{data.title}</p>
+          <div className="alert alert-info">
+            {data.title}
+            <br />
+            <a href="">Detail</a>
+          </div>
         ))}
       </div>
     );
